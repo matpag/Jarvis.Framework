@@ -14,12 +14,7 @@ namespace Jarvis.Framework.LoggingTests
             if (String.IsNullOrEmpty(overrideTestDb)) return;
 
             var overrideTestDbQueryString = Environment.GetEnvironmentVariable("TEST_MONGODB_QUERYSTRING");
-            var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            var connectionStringsSection = (ConnectionStringsSection)config.GetSection("connectionStrings");
-
-            connectionStringsSection.ConnectionStrings["testDb"].ConnectionString = overrideTestDb.TrimEnd('/') + "/{0}" + overrideTestDbQueryString;
-            config.Save();
-            ConfigurationManager.RefreshSection("connectionStrings");
+            ConfigurationManager.Instance.SetConnectionString("testDb", overrideTestDbQueryString);
         }
     }
 }
