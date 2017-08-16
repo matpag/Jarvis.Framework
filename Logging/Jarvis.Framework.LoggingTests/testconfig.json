@@ -1,0 +1,5 @@
+﻿{
+  "connections": {
+    "testDb" : "mongodb//localhost/{0}"
+  }
+}

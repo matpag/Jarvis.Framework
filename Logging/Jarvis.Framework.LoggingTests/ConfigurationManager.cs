@@ -20,18 +20,18 @@ namespace Jarvis.Framework.LoggingTests
         private ConfigurationManager()
         {
             _configurationRoot = new ConfigurationBuilder()
-                .AddXmlFile(Assembly.GetExecutingAssembly().FullName)
+                .AddJsonFile("testconfig.json")
                 .Build();
         }
 
         public String GetConnectionString(String connectionString)
         {
-            return _configurationRoot[$"configuration:connectionStrings:{connectionString}"];
+            return _configurationRoot[$"connections:{connectionString}"];
         }
 
         public void SetConnectionString(String connectionString, String newValue)
         {
-            _configurationRoot[$"configuration:connectionStrings:{connectionString}"] = newValue;
+            _configurationRoot[$"connections:{connectionString}"] = newValue;
         }
     }
 }

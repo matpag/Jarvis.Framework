@@ -33,8 +33,9 @@ namespace Jarvis.Framework.LoggingTests
             _db = client.GetDatabase(url.DatabaseName);
             _logCollection = _db.GetCollection<BsonDocument>("logs");
             _db.DropCollection(_logCollection.CollectionNamespace.CollectionName);
+            LogManager.CreateRepository("test");
 
-            var hierarchy = (Hierarchy)LogManager.GetRepository("");
+            var hierarchy = (Hierarchy)LogManager.GetRepository("test");
             _logger = hierarchy.LoggerFactory.CreateLogger(hierarchy, "logname");
             _logger.Hierarchy = hierarchy;
 
