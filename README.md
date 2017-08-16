@@ -9,6 +9,7 @@ J.A.R.V.I.S. Framework - Proximo srl (c)
 - [Metrics](Wiki/Metrics/metrics.md)
 	- [Projection](Wiki/Metrics/projections.md)
 - [Breaking Changes](Wiki/BreakingChanges.md)
+- [Migration to .NET CORE](Wiki/Core20.md)
 
 ###GitFlow
 
