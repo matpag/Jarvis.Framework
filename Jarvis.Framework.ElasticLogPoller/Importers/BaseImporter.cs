@@ -1,13 +1,9 @@
-﻿
-using log4net;
+﻿using log4net;
 using Nest;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Jarvis.Framework.ElasticLogPoller.Importers
 {
@@ -15,7 +11,7 @@ namespace Jarvis.Framework.ElasticLogPoller.Importers
     {
         protected ILog _log;
 
-        public BaseImporter()
+        protected BaseImporter()
         {
             _log = LogManager.GetLogger(this.GetType());
         }

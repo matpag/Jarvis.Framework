@@ -6,7 +6,6 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Fasterflect;
 
 namespace Jarvis.Framework.ElasticLogPoller.Importers
 {
@@ -19,19 +18,19 @@ namespace Jarvis.Framework.ElasticLogPoller.Importers
         {
             JObject jObject = JObject.Load(reader);
             BaseImporter retValue;
-            switch (jObject["Type"].Value<String>()) 
+            switch (jObject["Type"].Value<String>())
             {
-                case "mongo": 
+                case "mongo":
                     retValue = new MongoImporter();
                     break;
-                   
+
                 default:
-                    throw new ConfigurationErrorsException("Unknown type " + jObject["Type"]);
+                    throw new Exception("Unknown type " + jObject["Type"]);
             }
 
             foreach (var property in jObject.Properties().Where(p => p.Name != "Type"))
             {
-                retValue.SetPropertyValue(property.Name, property.Value.Value<String>());
+                retValue(property.Name, property.Value.Value<String>());
             }
 
             return retValue;
