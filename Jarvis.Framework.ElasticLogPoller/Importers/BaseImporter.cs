@@ -66,7 +66,6 @@ namespace Jarvis.Framework.ElasticLogPoller.Importers
                 SaveCheckpoint(pollResult.Checkpoint);
             }
             return pollResult;
-
         }
 
         protected abstract PollResult OnPoll();
@@ -116,6 +115,4 @@ namespace Jarvis.Framework.ElasticLogPoller.Importers
             _log.Info("ES Mapping set");
         }
     }
-
-
 }
